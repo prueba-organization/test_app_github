@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo noupdate="1">
+
+        <record id="base.main_partner" model="res.partner">
+            <field name="company_type">"company"</field>
+            <field name="street">calle1</field>
+            <field name="street2">calle2</field>
+            <field name="zip">j-99999999</field>
+            <field name="phone">9999-8888-9999</field>
+            <field name="email">email@email.com</field>
+            <field name="vat">22222</field><field name="property_account_position_id" eval="ref('l10n_mx_base.account_fiscal_position_601_fr')"/>
+            <field name="city_id" eval="ref('l10n_mx_base.res_city_mx_19_039')"/>
+            <field name="state_id" eval="ref('base.state_mx_nl')"/><field name="country_id" eval="ref('base.mx')"/>
+        </record>
+
+        <record id="data_res_partner_invoice_address_test_app_github" model="res.partner">
+            <field name="type">invoice</field>
+            <field name="parent_id" eval="ref('base.main_partner')"/>
+            <field name="street">calle1</field>
+            <field name="street2">calle2</field><field name="city_id" eval="ref('l10n_mx_base.res_city_mx_19_039')"/>
+            <field name="state_id" eval="ref('base.state_mx_nl')"/><field name="country_id" eval="ref('base.mx')"/>
+            <field name="zip">j-99999999</field>
+            <field name="phone">9999-8888-9999</field>
+            <field name="email">email@email.com</field>
+        </record>
+
+        <record id="base.main_company" model="res.company">
+            <field name="name">test_conpany</field>
+            <field name="logo" type="base64" file="test_app_github/static/img/logo.png"/>
+            <field name="street">calle1</field>
+            <field name="street2">calle2</field>
+            <field name="zip">j-99999999</field>
+            <field name="city">ciudad</field>
+            <field name="phone">9999-8888-9999</field>
+            <field name="fax"></field>
+            <field name="vat">22222</field>
+            <field name="address_parent_company_id" eval="data_res_partner_invoice_address_test_app_github"/><field name="currency_id" ref="base.MXN"/>
+            <field name="country_id" eval="ref('base.mx')"/>
+            <field name="state_id" eval="ref('base.state_mx_nl')"/><field name="email">email@email.com</field>
+            <field name="website">www.website.com</field>
+            <field name="rml_footer_readonly"></field>
+        </record>
+</odoo>
